@@ -1,0 +1,57 @@
+My note for the project
+/*
+add
+buttons to the bottom of the page and show different sets of student information when each
+button is clicked.
+
+One approach then is to create two functions, one that handles each of those tasks. 
+
+Here are some ideas for how to create those:
+The ${showPage Function} 
+To hide all students and show only a particular set of ten, 
+
+we could 
+create a function that takes
+in parameters for the (list (all of the students)) it’s supposed to work on, and the ("page") that’s
+supposed to be shown. 
+
+A "page" here just means a list of 10 students: so the first 1-10
+students would be "page 1", students 11-20 appear on "page 2", and so on.
+
+*/
+
+// this is my # 1 - first function - show page 1-10 from the list
+const showPage = (list, page) => {
+    for (i = 0; i < list.length; i++) {
+        if (index of a list item >= index of the first item that should be shown on the page && list item index <= index of the last item that should be shown on the ${page}) {
+            show it
+        }
+    }
+}
+
+// my second function
+/*
+The appendPageLinks Function
+Then we could 
+use a function that 
+creates all the pagination buttons, 
+adds them to the DOM,
+and adds their functionality. 
+So you would see a button with the number 1 which, when
+clicked, would show the first ten students (the first "page"). When each link is clicked, the
+showPage function displays the corresponding page (set of ten students), and highlights that
+page's link. For example, clicking the link to page 2 will display students 11 through 20 and
+highlight button 2.
+*/
+const appendPageLinks = (list) => {
+1. Determine how many pages are needed for the list by dividing the
+total number of list items by the max number of items per page
+2. Create a div, give it the “pagination” class, and append it to the .page div
+3. Add a ul to the “pagination” div to store the pagination links
+4. for every page, add li and a tags with the page number text
+5. Add an event listener to each a tag. When they are clicked
+call the showPage function to display the appropriate page
+6. Loop over pagination links to remove active class from all links
+7. Add the active class to the link that was just clicked. You can identify that
+clicked link using event.target
+}
