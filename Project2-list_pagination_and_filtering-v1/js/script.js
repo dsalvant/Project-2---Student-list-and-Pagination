@@ -23,14 +23,24 @@ document.addEventListener('DOMContentLoaded', (e) => {
    const list = listOfStudents.children;
    const showPage = (list, page) => {
       list = listOfStudents.children;
+      // adding constant for the start and ending point
+      const startPoint = tenStudentPerPage * page - tenStudentPerPage;
+      const endPoint = tenStudentPerPage * page;
       //numberOfPage = list / tenStudentPerPage;
       //console.log(list);
       for (let i = 0; i < list.length; i++) {
+         if (i >= startPoint && i <= endPoint) {
+            list[i].style.display = 'none';
+         }  else {
+            list[i].style.display = '';
+         }
+         /* my issue is with this here:
          if (i >= tenStudentPerPage) {
             list[i].style.display = 'none';
          } else if (i <= tenStudentPerPage) {
             list[i].style.display = '';
          }
+         */
       }
    }
    showPage();
@@ -52,6 +62,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
          //div.className = 'pagination';
          a.href = '#';
          a.textContent = i+1;
+
+         if (i === 0) {
+            a.className = 'active';
+         }
          /*
          Add the active class name to the first pagination link initially.
          add an eventlistener on the page link when click at the bottom of the page 
@@ -65,7 +79,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
                //this activate the classList
                e.target.paginationLink = 'active'; 
             }
-            showPage(list, paginationLink);
+            showPage(list, e.target.textContent);
          });
       }
       page.appendChild(div);
