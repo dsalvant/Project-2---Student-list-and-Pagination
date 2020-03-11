@@ -24,15 +24,15 @@ document.addEventListener('DOMContentLoaded', (e) => {
    const showPage = (list, page) => {
       list = listOfStudents.children;
       // adding constant for the start and ending point
-      const startPoint = tenStudentPerPage * page - tenStudentPerPage;
+      const startPoint = (tenStudentPerPage * page) - tenStudentPerPage;
       const endPoint = tenStudentPerPage * page;
       //numberOfPage = list / tenStudentPerPage;
       //console.log(list);
       for (let i = 0; i < list.length; i++) {
          if (i >= startPoint && i <= endPoint) {
-            list[i].style.display = 'none';
-         }  else {
             list[i].style.display = '';
+         }  else {
+            list[i].style.display = 'none';
          }
          /* my issue is with this here:
          if (i >= tenStudentPerPage) {
