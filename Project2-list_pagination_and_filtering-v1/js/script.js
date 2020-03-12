@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
    const listOfStudents = document.querySelector('.student-list') 
    const tenStudentPerPage = 10;
    const page = document.querySelector('.page');
+   console.log(listOfStudents.length);
+
    /*
    I need to create a function call showPage that call 10 item or student name on the page when display 
    list parameter ... represent the actual list of student pass as argument
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
    const showPage = (list, page) => {
       list = listOfStudents.children;
       // adding constant for the start and ending point
-      const startPoint = (tenStudentPerPage * page) - 9;
+      const startPoint = (tenStudentPerPage * page) - 10;
       const endPoint = tenStudentPerPage * page;
       //numberOfPage = list / tenStudentPerPage;
       //console.log(list);
