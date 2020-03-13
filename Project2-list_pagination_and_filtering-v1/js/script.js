@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
    const listOfStudents = document.querySelector('.student-list') 
    const tenStudentPerPage = 10;
    const page = document.querySelector('.page');
-   console.log(listOfStudents.length);
+   //console.log(listOfStudents.length);
 
    /*
    I need to create a function call showPage that call 10 item or student name on the page when display 
@@ -31,18 +31,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
       //numberOfPage = list / tenStudentPerPage;
       //console.log(list);
       for (let i = 0; i < list.length; i++) {
-         if (i >= startPoint && i <= endPoint) {
+         if (i >= startPoint && i < endPoint) {
             list[i].style.display = '';
          }  else {
             list[i].style.display = 'none';
          }
-         /* my issue is with this here:
-         if (i >= tenStudentPerPage) {
-            list[i].style.display = 'none';
-         } else if (i <= tenStudentPerPage) {
-            list[i].style.display = '';
-         }
-         */
+         
       }
    }
    showPage();
@@ -55,8 +49,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
       div.className = 'pagination';
       const ul = document.createElement('ul');
       div.appendChild(ul);
-      
-      
       const numberOfPage = Math.ceil(list.length / tenStudentPerPage);
       
       for (let i = 0; i < numberOfPage; i++) {
@@ -68,14 +60,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
          //div.className = 'pagination';
          a.href = '#';
          a.textContent = i+1;
-
-         
-         
-         //a.className = 'active';
-         //a.className = '';
-      
-         
-
          
          /*
          Add the active class name to the first pagination link initially.
@@ -101,52 +85,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
             }
             
             
-            // for (let i = 0; i > a.length; i ++) {
-            //    if (i === 0) {
-            //       a.className = 'active';
-            //    }
-            // }
-            // a.className = '';
-            // for (let i = 0; i > a.length; i++) {
-            //    paginationLink[i].className = '';
-            //    if (i === 0) {
-            //       a.className = 'active';
-            //    } else {
-            //       paginationLink[i].className = 'active';
-            //    }
-            //    // else {
-            //    //    paginationLink[i].className = 'active';
-            //    // }
-               
-            // }     
-            // for (let i = 0; i < paginationLink.length; i++) {
-               
-
-            //    if (i === 0) {
-            //       a.className = 'active';  
-            //    } else {
-            //       paginationLink[i].className = '';
-            //    }
-            //    if (i === 0) {
-            //       a.className = 'active';
-            //    } else {
-            //       paginationLink[i].className = 'active';
-            //    }
-            //    // } else {
-                  
-            //    //    a.className = '';  
-            //    // } else {
-            //    // //this activate the classList
-            //    // //e.target.paginationLink = 'active'; 
-            //    // a.className = 'active';  
-            //    // }
-            //    // }
-            //    //e.target.paginationLink = 'active'; 
-              
-            //    // console.log(page);
-            //    // console.log(paginationLink);
-            //    console.log(a);
-            // }
+           
             showPage(list, e.target.textContent);
          });
       }
